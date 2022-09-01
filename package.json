@@ -1,0 +1,26 @@
+{
+  "name": "todolistwithpern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mironshoh1603/TodolistWithPern.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mironshoh1603/TodolistWithPern/issues"
+  },
+  "homepage": "https://github.com/Mironshoh1603/TodolistWithPern#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "pg": "^8.8.0",
+    "sequelize": "^6.21.4"
+  }
+}
