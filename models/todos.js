@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const sequelize = require("sequelize");
+const sequelize = require("../config/database");
 
 const todos = sequelize.define(
   "todos",
@@ -8,25 +8,27 @@ const todos = sequelize.define(
       type: Sequelize.DataTypes.STRING,
       allowNull: false,
     },
+
+    level: {
+      type: Sequelize.DataTypes.ENUM("pending", "succes", "failed"),
+      defaultValue: "pending",
+    },
+    startTime: {
+      type: Sequelize.DataTypes.DATE,
+      defaultValue: Date.now(),
+    },
     finishedTime: {
       type: Sequelize.DataTypes.DATE,
-      default: Date.now() + 24 * 3600 * 1000,
-    },
-    level: {
-      type: Sequelize.DataTypes.ENUM(
-        "bajarilgan",
-        "bajarilmagan",
-        "bajarilmoqda"
-      ),
-      default: "bajarilmoqda",
+      defaultValue: Date.now() + 24 * 3600 * 1000,
     },
   },
   {
     freezeTableName: true,
+    timestamps: false,
   }
 );
 
 todos.sync({
-  alter: true,
+  allow: true,
 });
 module.exports = todos;
